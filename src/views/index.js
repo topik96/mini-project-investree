@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   wrapButton: {
     flex: 2,
-    bottom: 60
+    top: 5
   },
   button: {
     height: 70,
