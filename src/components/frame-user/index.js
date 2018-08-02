@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList, Image, ActivityIndicator } from 'react-native'
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  FlatList,
+  Image,
+  ActivityIndicator
+} from 'react-native'
 import Style from './style'
 import API from '../../helpers'
 import Asset from '../../assets'
-
+import { fetchData } from '../../views/user-section/actions'
+import { connect } from 'react-redux'
 class FrameUser extends Component {
   constructor(props) {
     super(props)
     this.state = { data: [] }
   }
 
-  componentWillMount() {
-    API()
-      .then(res => {
-        const filter = res.data.filter(data => {
-          return data.age > 14
-        })
-        this.setState({
-          data: filter
-        })
-      })
-      .catch(err => console.log(err))
+  componentDidMount() {
+    this.props.fetchData()
   }
   _renderItem = ({ item }) => {
     return (
@@ -43,27 +42,29 @@ class FrameUser extends Component {
   }
 
   render() {
-    if (this.state.data.length == 0) {
+    if (this.props.data.length == 0) {
       return (
         <View>
           <ActivityIndicator size="large" color={Asset.Blue} />
         </View>
       )
     }
-    return <FlatList data={this.state.data} renderItem={this._renderItem} />
+    return <FlatList data={this.props.data} renderItem={this._renderItem} />
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     dataUser: state
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    data: state.user.data
+  }
+}
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchData: () => dispatch(fetchData())
-//   }
-// }
-
-export default FrameUser
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchData: () => dispatch(fetchData())
+  }
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FrameUser)

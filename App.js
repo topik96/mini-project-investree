@@ -6,17 +6,11 @@
  * @flow
  */
 
-import React, { Component } from 'react'
+import React from 'react'
 import { View } from 'react-native'
-import Home from './src/views'
+import Home from './src/views/root-navigation'
 
-class App extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <Home navigation={this.props.navigation} />
-      </View>
-    )
-  }
+const App = () => {
+  return <Home />
 }
 export default App

@@ -7,8 +7,8 @@ import TabNavigation from './tab-navigation'
 import Home from './index'
 
 export const RootNavigation = StackNavigator({
-  App: {
-    screen: App,
+  Home: {
+    screen: Home,
     navigationOptions: {
       header: null
     }
@@ -20,11 +20,10 @@ export const RootNavigation = StackNavigator({
     }
   },
   Custom: { screen: Custom },
-  Home: { screen: Home },
   TabNavigation: {
     screen: TabNavigation,
     navigationOptions: {
-      header: null
+      title: 'User'
     }
   }
 })

@@ -1,6 +1,6 @@
 import * as ACTION from '../type'
 const initState = {
-  data: [],
+  data: [{ nama: 'Topik', kelas: 7 }],
   isFetching: true
 }
 

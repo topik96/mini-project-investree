@@ -17,7 +17,7 @@ import {
 } from 'react-native'
 import Asset from '../assets'
 const { width } = Dimensions.get('window')
-const Home = ({ navigation }) => {
+const Home = props => {
   return (
     <View style={styles.container}>
       <Image source={Asset.ProfilIcon} style={{ top: -20 }} />
@@ -25,7 +25,7 @@ const Home = ({ navigation }) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate('TabNavigation')
+            props.navigation.navigate('TabNavigation')
           }}
         >
           <Text style={styles.texButton}>User</Text>
@@ -33,7 +33,7 @@ const Home = ({ navigation }) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate('Custom')
+            props.navigation.navigate('Custom')
           }}
         >
           <Text style={styles.texButton}>Custom</Text>
@@ -51,11 +51,12 @@ const styles = StyleSheet.create({
     backgroundColor: Asset.White
   },
   wrapButton: {
-    flex: 2,
-    top: 5
+    flex: 3,
+    top: 5,
+    padding: 5
   },
   button: {
-    height: 70,
+    height: 65,
     top: 0,
     padding: 10,
     marginBottom: 10,
