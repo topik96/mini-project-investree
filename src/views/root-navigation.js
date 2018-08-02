@@ -21,7 +21,12 @@ export const RootNavigation = StackNavigator({
   },
   Custom: { screen: Custom },
   Home: { screen: Home },
-  TabNavigation: { screen: TabNavigation }
+  TabNavigation: {
+    screen: TabNavigation,
+    navigationOptions: {
+      header: null
+    }
+  }
 })
 
 export default RootNavigation

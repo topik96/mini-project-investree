@@ -20,7 +20,7 @@ const { width } = Dimensions.get('window')
 const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Image source={Asset.ProfilIcon} style={{ top: 0 }} />
+      <Image source={Asset.ProfilIcon} style={{ top: -20 }} />
       <View style={styles.wrapButton}>
         <TouchableOpacity
           style={styles.button}
@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: Asset.White
   },
   wrapButton: {
-    flex: 2
+    flex: 2,
+    bottom: 60
   },
   button: {
     height: 70,
