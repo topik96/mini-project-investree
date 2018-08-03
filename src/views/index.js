@@ -16,6 +16,8 @@ import {
   Dimensions
 } from 'react-native'
 import Asset from '../assets'
+
+console.disableYellowBox = true
 const { width } = Dimensions.get('window')
 const Home = props => {
   return (

@@ -4,6 +4,7 @@ import Frame from '../../components/frame-user'
 import Style from './style'
 import store from '../../redux'
 import { Provider } from 'react-redux'
+
 const User = () => {
   return (
     <Provider store={store}>
