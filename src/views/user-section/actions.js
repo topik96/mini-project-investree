@@ -13,19 +13,18 @@ const getDataSuccess = data => {
 }
 
 const rangeAge = (age1, age2) => {
-  return {
-    type: ACTION.RANGE_AGE,
-    age1,
-    age2
-  }
+  return {}
 }
 
-export const fetchData = () => {
+export const fetchData = (age1 = 50) => {
   return dispatch => {
     dispatch(getData())
     getPeople()
       .then(res => {
-        dispatch(getDataSuccess(res.data))
+        const filterData = res.data.filter(dataFilter => {
+          return dataFilter.age <= age1
+        })
+        dispatch(getDataSuccess(filterData))
       })
       .catch(err => console.log(err))
   }

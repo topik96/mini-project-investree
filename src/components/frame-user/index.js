@@ -18,9 +18,6 @@ class FrameUser extends Component {
     this.state = { data: [] }
   }
 
-  componentDidMount() {
-    this.props.fetchData()
-  }
   _renderItem = ({ item }) => {
     return (
       <View key={item._id} style={Style.container}>
@@ -59,12 +56,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchData: () => dispatch(fetchData())
-  }
-}
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FrameUser)
+export default connect(mapStateToProps)(FrameUser)

@@ -2,11 +2,10 @@ import React from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import Frame from '../../components/frame-user'
 import Style from './style'
-import store from '../../redux'
-import { Provider } from 'react-redux'
-
-const User = () => {
-  console.log('ini user')
+import { fetchData } from './actions'
+import { connect } from 'react-redux'
+const Home = props => {
+  props.fetchData(50)
   return (
     <View style={Style.container}>
       <Frame />
@@ -14,4 +13,7 @@ const User = () => {
   )
 }
 
-export default User
+export default connect(
+  null,
+  { fetchData }
+)(Home)

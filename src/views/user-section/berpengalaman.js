@@ -2,17 +2,18 @@ import React from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import Frame from '../../components/frame-user'
 import Style from './style'
-import store from '../../redux'
-import { Provider } from 'react-redux'
-
-const Berpengalaman = () => {
+import { fetchData } from './actions'
+import { connect } from 'react-redux'
+const Berpengalaman = props => {
+  props.fetchData(40)
   return (
-    <Provider store={store}>
-      <View style={Style.container}>
-        <Frame />
-      </View>
-    </Provider>
+    <View style={Style.container}>
+      <Frame />
+    </View>
   )
 }
 
-export default Berpengalaman
+export default connect(
+  null,
+  { fetchData }
+)(Berpengalaman)
