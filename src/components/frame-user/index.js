@@ -10,14 +10,9 @@ import {
 import Style from './style'
 import API from '../../helpers'
 import Asset from '../../assets'
-import { fetchData } from '../../views/user-section/actions'
+
 import { connect } from 'react-redux'
 class FrameUser extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { data: [] }
-  }
-
   _renderItem = ({ item }) => {
     return (
       <View key={item._id} style={Style.container}>
