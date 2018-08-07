@@ -1,5 +1,5 @@
 import * as ACTION from '../../redux/type'
-import API from '../../helpers'
+import { getPeople } from '../../helpers'
 const getData = () => {
   return {
     type: ACTION.FETCHING_DATA
@@ -23,7 +23,7 @@ const rangeAge = (age1, age2) => {
 export const fetchData = () => {
   return dispatch => {
     dispatch(getData())
-    API()
+    getPeople()
       .then(res => {
         dispatch(getDataSuccess(res.data))
       })

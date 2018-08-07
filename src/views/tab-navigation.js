@@ -1,12 +1,12 @@
 import React from 'react'
 import { Image, StyleSheet, Text } from 'react-native'
-import { TabNavigator } from 'react-navigation'
+import { createBottomTabNavigator } from 'react-navigation'
 import User from './user-section'
 import MencariIlmu from './user-section/mencari-ilmu'
 import Berpengalaman from './user-section/berpengalaman'
 import MencariPengalaman from './user-section/mencari-pengalaman'
 import Asset from '../assets'
-export const TabNavigation = TabNavigator({
+export const TabNavigation = createBottomTabNavigator({
   User: {
     screen: User,
     navigationOptions: {
@@ -44,6 +44,22 @@ export const TabNavigation = TabNavigator({
     }
   }
 })
+
+// TabNavigation.navigationOptions = ({ navigation }) => {
+//   console.log(navigation)
+//   const { routes, index } = navigation.state
+//   const navigationOptions = {}
+
+//   // here's an example, but you can dynamically define title
+//   // however you like given `routes` & `index`
+//   if (routes[index].routeName == 'MencariIlmu') {
+//     navigationOptions.title = 'Mencari Ilmu'
+//   } else {
+//     navigationOptions.title = 'User'
+//   }
+
+//   return navigationOptions
+// }
 
 const styles = StyleSheet.create({
   icon: {

@@ -8,9 +8,14 @@
 
 import React from 'react'
 import { View } from 'react-native'
-import Home from './src/views/root-navigation'
-
+import AppNavigation from './src/views/root-navigation'
+import { Provider } from 'react-redux'
+import store from './src/redux'
 const App = () => {
-  return <Home />
+  return (
+    <Provider store={store}>
+      <AppNavigation />
+    </Provider>
+  )
 }
 export default App

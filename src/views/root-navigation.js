@@ -1,30 +1,21 @@
 import React from 'react'
-import { StackNavigator, TabBarBottom } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation'
 import App from '../../App'
 import User from '../views/user-section'
 import Custom from '../views/custom'
 import TabNavigation from './tab-navigation'
 import Home from './index'
 
-export const RootNavigation = StackNavigator({
+export const RootNavigation = createStackNavigator({
   Home: {
-    screen: Home,
-    navigationOptions: {
-      header: null
-    }
+    screen: Home
   },
   User: {
-    screen: User,
-    navigationOptions: {
-      header: null
-    }
+    screen: User
   },
   Custom: { screen: Custom },
   TabNavigation: {
-    screen: TabNavigation,
-    navigationOptions: {
-      title: 'User'
-    }
+    screen: TabNavigation
   }
 })
 

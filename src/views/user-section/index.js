@@ -6,12 +6,11 @@ import store from '../../redux'
 import { Provider } from 'react-redux'
 
 const User = () => {
+  console.log('ini user')
   return (
-    <Provider store={store}>
-      <View style={Style.container}>
-        <Frame />
-      </View>
-    </Provider>
+    <View style={Style.container}>
+      <Frame />
+    </View>
   )
 }
 

@@ -13,12 +13,13 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  Dimensions
+  Dimensions,
+  Platform
 } from 'react-native'
 import Asset from '../assets'
-
 console.disableYellowBox = true
 const { width } = Dimensions.get('window')
+
 const Home = props => {
   return (
     <View style={styles.container}>
@@ -43,6 +44,10 @@ const Home = props => {
       </View>
     </View>
   )
+}
+
+Home.navigationOptions = {
+  header: null
 }
 
 const styles = StyleSheet.create({
